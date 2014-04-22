@@ -1,0 +1,450 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: STANLEY - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+  	background-color: #ffffff;
+  	font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+
+h1 {
+	font-size: 35px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #1bb5f2;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.navbar {
+	text-transform: uppercase;
+	margin-bottom: 0px;
+}
+
+.navbar-inverse {
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+.navbar-inverse {
+	background-color: #1bb5f2;
+	border-color: #16a085;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: #222222;
+}
+
+.navbar-brand {
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: transparent;
+}
+
+.progress-bar-theme {
+  background-color: #1bb5f2;
+}
+
+
+/* Helpers */
+
+.mt {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.pt {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+
+/* Button styles from the awesome: http://www.webdesignerwall.com/demo/css-buttons.html */
+
+.readmore_button {
+    float: right;
+    display: inline-block;
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.readmore_button:hover {
+    text-decoration: none;
+}
+.readmore_button:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/* +++++ WRAP SECTIONS +++++ */
+
+#main_body {
+	position: relative;
+}
+
+#ww {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	background-color: #f2f2f2;
+}
+
+
+#footer {
+	background-color: #2f2f2f;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#footer p {
+	color: white;
+}
+
+#footer h4 {
+	color: white;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+
+
+/* +++++ Color Wraps / Blog Page +++++ */
+
+#grey {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: #f2f2f2;
+}
+
+#white {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: #ffffff;
+}
+
+
+
+/* Blog Date*/
+bd {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #d2d2d2;
+	font-weight: 700;
+}
+
+/* Blog Author*/
+ba {
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+/* Blog Quote */
+.bq {
+	font-size: 22px;
+	padding-top: 30px;
+}
+
+/* Blog Tags */
+bt {
+	font-size: 12px;
+}
+
+/* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
+/* Effects also are controled by hover.zoom.js */
+.zoom {
+    display:block;
+    position:relative;
+    overflow:hidden;
+    background:transparent url(../images/loader.gif) no-repeat center;
+}
+
+
+.zoomOverlay {
+    position:absolute;
+    top:0; left:0;
+    bottom:0; right:0;
+    display:none;
+    background-image:url(../images/zoom.png);
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.zoom2 {
+	opacity: 1;
+}
+
+.zoom2:hover {
+	opacity: 0.5;
+}
+
+/* glyphicon Configuration */
+
+.glyphicon {
+	font-size: 40px;
+	color: #1bb5f2;
+}
+
+
+/* from site.css */
+article.post p{
+    font-size: 12px;
+    line-height: 24px;
+    margin: 6px 0;
+}
+
+article.post img{
+    display: block;
+    margin-bottom: 24px;
+    position:relative;
+    height: auto;
+    max-width: 100%;
+}
+
+.post time{
+    font-size: 12px;
+    color: #999;
+    float:left;
+    margin-top: 6px;
+}
+
+ul.tags{
+    margin-bottom: 24px;
+    text-align: right;
+}
+
+ul.tags li{
+    list-style-type: none;
+    display: inline;
+}
+
+ul.tags li a{
+    color: #999;
+    text-decoration: none;
+}
+
+h1.tag:before,
+ul.tags li a:before{
+    content: '\00AB';
+}
+
+h1.tag:after,
+ul.tags li a:after{
+    content: '\00BB';
+}
+
+ul.tags li a:hover{
+    color: #222;
+}
+
+
+nav.post_nav{
+    background-color: #FFFFFF;
+    position: fixed;
+    width: 124px;
+	margin-top: 120px;
+    font-size: 12px;
+    padding: 12px;
+    padding-right: 24px;
+
+}
+
+a.backlink{
+    display:block;
+    line-height: 24px;
+    margin-bottom: 12px;
+}
+
+a.backlink:before{
+    content: '\2190';
+}
+
+a.prev:before{
+    content: '\00AB';
+}
+
+a.next:after{
+    content: '\00BB';
+}
+
+a.prev{
+    margin-right: 12px;
+}
+
+a.prev,
+a.next{
+    display: block;
+    float: left;
+    margin-bottom: 12px;
+}
+
+a.next{ float: right };
+
+a.backlink:hover, a.prev:hover, a.next:hover{
+    color: #222;
+}
+
+.post_nav a.disabled{
+    color: #ccc;
+}
+
+.post_nav a{
+    color: #666;
+    text-decoration: none;
+    text-shadow: 0px 2px 0px #fff;
+}
+
+.post_nav div{
+    display: block;
+    float: left;
+    width: 58px;
+    overflow: hidden;
+    margin-left: 4px;
+}
+
+#facebook_like{
+    margin-top: 1px;
+}
+
+.archives ul.posts{
+    margin-top: 24px;
+}
+
+.archives li.post{
+    list-style-type: none;
+    border-bottom: 1px dotted #ccc;
+    padding: 20px 5px;
+
+}
+
+.archives li.post time{
+    color: #999;
+    text-shadow: 0px 2px 0px #fff;
+    margin-right: 24px;
+    display:block;
+    float: left;
+    width: 120px;
+}
+
+.archives li.post a{
+    float: left;
+}
+
+.archives ul.tags{
+    float: right;
+    margin-bottom:0;
+}
+
+
+.codebox {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+.code {
+  position: relative;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: #F0F3F3;
+}
+.code figcaption {
+  font-size: 10px;
+  position: absolute;
+  bottom: 3px;
+  right: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.highlight pre {
+  font-size: 12px;
+  padding: 16px 12px 12px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
