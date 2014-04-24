@@ -27,24 +27,61 @@ The workflow is show below in the graph(from [GEM5][GEM5-link] website):
 
 ![Fetch Workflow](Fetch.png)
 
-1. In function *fetchCacheLine*, a *RequestPtr* is contructed with the
-to-be-translated instruction address. Then the request will be sent to
-cpu's ITLB.
+The above flowchart uses ARM ISA as an example, but other architecture
+should share the same steps.
 
-2. In ITLB, *translateTiming* function will process this request immediately
-by checking TLB structure. However, it will not make a delay of TLB request
-if it hits in the TLB. The request will be forwarded back to Fetch Unit via
-function *finishTranslation* in the same cycle.
+Something worth noticing:
 
-3. Inside *finishTranslation* function, physical address will be extracted and
-sent to Instruction Cache in the same cycle.
+1.  In function `fetchCacheLine`, a `RequestPtr` is contructed with the
+    to-be-translated instruction address. Then the request will be sent to
+    cpu's ITLB.
 
-4. Therefore, ITLB access takes no cycle to finish. As I confirmed with one of
-GEM5 developers, they assume TLB accesses proceed in parallel with Cache access.
+2.  In ITLB, `translateTiming` function will process this request immediately
+    by checking TLB structure. However, it will not make a delay of TLB request
+    if it hits in the TLB. The request will be forwarded back to Fetch Unit via
+    function `finishTranslation` in the same cycle.
+
+3.  Inside `finishTranslation` function, physical address will be extracted and
+    sent to Instruction Cache in the same cycle.
+
+4.  Therefore, ITLB access takes no cycle to finish. As I confirmed with one of
+    GEM5 developers, they assume TLB accesses proceed in parallel with Cache
+    access.
 
 
-TODO: How to add TLB access latency.
+How to add TLB access latency.
 -----------------
+If you want to make TLB show its latency in the critical path, you need to delay
+the return of TLB translation results. You either delay it in **src/arch/
+\[Architecture\]/tlb.cc**, or send out TLB request after N cycles like me.
+
+Here is how I did it:
+
+1.  Add a class `TLBAccessDelayEvent` which derived from `Event` by referring
+    `FinishTranslationEvent`. You need those members in the class:
+
+        O3CPU *cpu;
+        DefaultFetch<Impl> *fetch
+        RequestPtr req;
+        ThreadID tid;
+
+2.  Put TLB translation request action inside `process` function, like:
+
+        FetchTranslation *trans = new FetchTranslation(fetch);
+        cpu->itb->translateTiming(req, cpu->thread[tid]->getTC(),
+                                  trans, BaseTLB::Execute);
+
+3.  Set all members in the class, and schedule the event:
+
+        cpu->schedule(tlbAccessDelayEvent[tid],
+                      cpu->clockEdge(Cycles(1)));
+
+    The 1 above tells cpu to schedule the event after 1 cycle, and you can
+    change it to your TLB access latency.
+
+In this way, I manage to put additional TLB access latency in the critical
+path. It works. Any comment is welcomed.
+
 [GEM5-link]: http://gem5.org/Main_Page
 {%- endmark %}
 {% endmarkdown %}
