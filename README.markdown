@@ -1,1 +1,1 @@
-Basic template for hyde.
+Initial status of my static site

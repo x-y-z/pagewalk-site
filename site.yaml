@@ -11,7 +11,7 @@ plugins:
     - hyde.ext.plugins.text.TextlinksPlugin
 context:
     data:
-        tweet_via: ringce
+        tweet_via: birdman_yan
         menu:
             -
                 name: Home
@@ -44,7 +44,7 @@ markdown:
         - codehilite
 meta:
     nodemeta: meta.yaml
-    created: !!timestamp 2010-01-01 00:00:00
+    created: !!timestamp 2014-04-22 09:00:00
     author: Zi Yan
 sorter:
     time:

@@ -1,0 +1,50 @@
+---
+title: GEM5 TLB access detail
+description: >
+    About how GEM5 simulate TLB access in its generic O3 CPU model
+created: !!timestamp '2014-04-23 19:46:00'
+tags:
+    - research
+    - gem5
+    - simulator
+---
+
+{% markdown %}
+{% mark excerpt -%}
+What is GEM5?
+------------
+
+[GEM5][GEM5-link] is a popular cycle-accurate simulator. I am current using it,
+so I am taking some notes on it for future reference. The notes here is based
+on current version of GEM5(version around the time this blog posted)
+
+ITLB access in O3CPU
+-----------
+
+ITLB accesses of a O3CPU is initiated in **src/cpu/o3/fetch_impl.h**.
+
+The workflow is show below in the graph(from [GEM5][GEM5-link] website):
+
+![Fetch Workflow](Fetch.png)
+
+1. In function *fetchCacheLine*, a *RequestPtr* is contructed with the
+to-be-translated instruction address. Then the request will be sent to
+cpu's ITLB.
+
+2. In ITLB, *translateTiming* function will process this request immediately
+by checking TLB structure. However, it will not make a delay of TLB request
+if it hits in the TLB. The request will be forwarded back to Fetch Unit via
+function *finishTranslation* in the same cycle.
+
+3. Inside *finishTranslation* function, physical address will be extracted and
+sent to Instruction Cache in the same cycle.
+
+4. Therefore, ITLB access takes no cycle to finish. As I confirmed with one of
+GEM5 developers, they assume TLB accesses proceed in parallel with Cache access.
+
+
+TODO: How to add TLB access latency.
+-----------------
+[GEM5-link]: http://gem5.org/Main_Page
+{%- endmark %}
+{% endmarkdown %}

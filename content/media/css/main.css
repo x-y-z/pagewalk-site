@@ -284,7 +284,8 @@ article.post img{
     margin-bottom: 24px;
     position:relative;
     height: auto;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
 }
 
 .post time{
