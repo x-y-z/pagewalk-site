@@ -404,6 +404,15 @@ a.backlink:hover, a.prev:hover, a.next:hover{
 
 }
 
+li article img{
+    width: 100%;
+    max-width: 500px;
+}
+/*.archives li.post img{*/
+    /*width: 100%;*/
+    /*max-width: 500px;*/
+/*}*/
+
 .archives li.post time{
     color: #999;
     text-shadow: 0px 2px 0px #fff;
